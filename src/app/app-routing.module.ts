@@ -11,6 +11,14 @@ const routes: Routes = [
     loadChildren: () => import('./prestamos/prestamos.module').then(m => m.PrestamosModule)
   },
   {
+    path: 'trademarks',
+    loadChildren: () => import('./trademarks/trademarks.module').then(m => m.TrademarksModule)
+  },
+  {
+    path: 'products',
+    loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
+  },
+  {
     path: '**',
     redirectTo:'dashboard'
   }
