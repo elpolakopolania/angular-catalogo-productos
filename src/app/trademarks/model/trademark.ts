@@ -1,11 +1,7 @@
 export interface Product {
   id: string;
   name: string;
-  size: string;
-  observation: string;
-  trademar_id: BigInteger;
-  inventory_quantity: bigint;
-  boarding_date: Date;
+  reference: string;
 }
 
 export interface CreateProduct extends Omit<Product, 'id' | 'category'> {
