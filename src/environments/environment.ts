@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  capitalBase: 1000000
+  capitalBase: 1000000,
+  API_URL: "http://localhost:8000/api/v1/"
 };
 
 /*

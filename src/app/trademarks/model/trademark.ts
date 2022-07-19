@@ -1,11 +1,11 @@
-export interface Product {
+export interface Trademark {
   id: string;
   name: string;
   reference: string;
 }
 
-export interface CreateProduct extends Omit<Product, 'id' | 'category'> {
+export interface CreateTrademark extends Omit<Trademark, 'id' | 'category'> {
   categoryId: number;
 }
 
-export interface UpdateProduct extends Partial<CreateProduct> {}
+export interface UpdateTrademark extends Partial<CreateTrademark> {}

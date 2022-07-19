@@ -9,11 +9,15 @@ import { Solicitud } from '../../model/solicitud';
   styleUrls: ['./capital.component.css'],
 })
 export class CapitalComponent implements OnInit {
-  public pagados: Solicitud[];
-  capitalBase = environment.capitalBase;
   public totalPrestado: any = 0;
-  valorPrestado: any;
-  constructor(private solicitudService: SolicitudService) {}
+  public valorPrestado: any;
+  public capitalBase = environment.capitalBase;
+  private pagados: Solicitud[];
+  constructor(
+    private solicitudService: SolicitudService
+  ) {
+
+    }
 
   ngOnInit(): void {
     // Calcular el total prestado

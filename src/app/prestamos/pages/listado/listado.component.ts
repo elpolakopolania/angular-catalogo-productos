@@ -29,9 +29,14 @@ export class ListadoComponent implements OnInit {
   public pagados: Solicitud[];
   public totalPrestado: any = 0;
   public capitalBase = environment.capitalBase;
-  @Host() private monto: MontoComponent;
 
-  constructor(private solicitudService: SolicitudService, public dialog: MatDialog) {}
+  constructor( 
+    private solicitudService: SolicitudService, 
+    public dialog: MatDialog, 
+    @Host() private monto: MontoComponent
+  ) {
+    
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

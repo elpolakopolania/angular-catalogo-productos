@@ -1,1 +1,62 @@
-<p>list works!</p>
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div fxFlex="95%">
+      <mat-card>
+        <mat-card-content>
+          <h2>Lista de marcas</h2>
+          <mat-form-field appearance="standard">
+            <mat-label>Filtrar</mat-label>
+            <input
+              matInput
+              (keyup)="applyFilter($event)"
+              placeholder="Ex. ium"
+              #input
+            />
+          </mat-form-field>
+  
+          <table mat-table [dataSource]="dataSource.data" class="mat-elevation-z8">
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef>ID</th>
+              <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+            </ng-container>
+  
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+            </ng-container>
+  
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef>Referencia</th>
+              <td mat-cell *matCellDef="let element">{{ element.reference }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>#</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-chip-list
+                  aria-label="Fish selection"
+                >
+                  <button
+                    mat-raised-button
+                    color="primary"
+                    (click)="pagar(element)"
+                  >
+                    Pagar
+                  </button>
+                </mat-chip-list>
+              </td>
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">
+                No hay datos que coincidan con el filtro "{{ input.value }}"
+              </td>
+            </tr>
+          </table>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
