@@ -1,0 +1,92 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+  <div fxFlex="95%">
+    <mat-card>
+      <mat-card-content>
+        <h2>Home</h2>
+
+        <h3>Prueba Frontend Senior - Semisenior</h3>
+        <h4>Objetivo</h4>
+        <p>
+          Construir una plataforma para solicitar préstamos, que apruebe o
+          rechace las solicitudes del cliente según los siguientes criterios.
+        </p>
+        <h4>Objetivos específicos</h4>
+        <ul>
+          <li>
+            Crear un componente de préstamos que le permita al usuario elegir el
+            monto a solicitar entre un valor mínimo y un valor máximo (ej. vlr.
+            min. 10.000 - vlr. máx. 100.000).
+          </li>
+          <li>
+            Desarrollar un sistema que permita crear usuarios con los siguientes
+            parámetros:
+            <ul>
+              <li>Nombre</li>
+              <li>Correo</li>
+              <li>Cédula</li>
+              <li>
+                <p>
+                  Debe usar el componente de préstamos para seleccionar el valor
+                  del crédito, el cual incluye:
+                </p>
+                <ul>
+                  <li>Valor Solicitado</li>
+                  <li>Fecha pagar (opcional)</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Al momento de realizar la solicitud, el sistema debe validar
+            aleatoriamente si el crédito fue aprobado o no.
+          </li>
+          <li>
+            Crear una key en las variables de entorno del proyecto donde se
+            especifique el capital base del banco.
+          </li>
+          <li>
+            Crear un componente que siempre sea visible con el monto base del
+            banco y este debe cambiar de acuerdo a los préstamos y pagos que se
+            realicen. Ejemplo (monto base: $1.000.000 y el banco realiza un
+            préstamo por $100.000, el nuevo monto del banco debería mostrarse
+            como $900.000).
+          </li>
+          <li>
+            El sistema debe mostrar una lista de las solicitudes aprobadas y que
+            están pendientes por pagar. (debe mostrar monto, nombre, y botón de
+            pago). Del mismo modo debe permitir pagar los créditos aprobados.
+          </li>
+          <li>
+            Recuerda que los datos de la aplicaciones los puedes guardar
+            localmente en un servicio para el consumo de estos. Puedes usar la
+            siguiente librería:<br />
+            <a href="https://github.com/typicode/json-server"
+              >https://github.com/typicode/json-server</a
+            >
+            o usar Firebase.
+          </li>
+        </ul>
+        <h4>Criterios de evaluación</h4>
+        <ul>
+          <li>Usar Angular como framework de desarrollo</li>
+          <li>Implementar buenas prácticas de desarrollo</li>
+          <li>Utilizar interfaces y/o modelos</li>
+          <li>Reutilización de componentes</li>
+        </ul>
+        <h4>Plus</h4>
+        <ul>
+          <li>Utilizar lazyload en las rutas</li>
+          <li>Reutilizar la mayor cantidad de componentes</li>
+          <li>Que el sitio sea responsive</li>
+          <li>Usar Angular Material</li>
+        </ul>
+        <p>
+          Al finalizar, deberás enviar la prueba a los e-mails
+          (christian.unigarro@zinobe.com) (edison.rojas@zinobe.com). No olvides
+          agregar un Readme.md donde estén los pasos para levantar el proyecto.
+          Muchos éxitos!
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
