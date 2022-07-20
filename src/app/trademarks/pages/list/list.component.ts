@@ -16,6 +16,7 @@ export class ListComponent implements OnInit {
   public trademarks: Trademark[];
   public displayedColumns: string[] = ['id', 'name', 'reference', 'actions'];
   public dataSource: MatTableDataSource<Trademark>;
+  public datos: any;
 
   constructor(
     private trademarkService: TrademarkService,
@@ -56,6 +57,24 @@ export class ListComponent implements OnInit {
     // Obtener el listado
     this.trademarkService
       .getAll()
-      .subscribe((data) => (this.dataSource = new MatTableDataSource(data)));
+      .subscribe((data) => {        
+        this.datos = data;
+        this.dataSource = new MatTableDataSource(this.datos.data);
+        console.log(this.datos.data);
+      });
   }
+
+  nuevo(){
+
+  }
+
+  editar(el: any){
+    console.log(el);
+  }
+
+  eliminar(el: any){
+    console.log(el);
+  }
+
+
 }
