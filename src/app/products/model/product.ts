@@ -1,15 +1,21 @@
+import { Trademark } from "src/app/trademarks/model/trademark";
+
 export interface Product {
   id: string;
   name: string;
   size: string;
   observation: string;
-  trademar_id: BigInteger;
+  trademark: Trademark;
   inventory_quantity: bigint;
   boarding_date: Date;
 }
 
-export interface CreateProduct extends Omit<Product, 'id' | 'category'> {
-  categoryId: number;
+export interface CreateProduct extends Omit<Product, 'id' | 'trademark'> {
+  trademark_id: number;
 }
 
 export interface UpdateProduct extends Partial<CreateProduct> {}
+
+export interface GetProduct {
+  data: Product;
+}
