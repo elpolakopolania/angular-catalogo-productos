@@ -78,8 +78,8 @@ export class CreateComponent implements OnInit {
   modalConfirm(bool: Boolean) {
     this.dialog.open(ModalComponent, {
       data: {
-        title: 'Marca',
-        content: (bool)? 'La marca ha sido creada exitosamente': 'No se pudo crear la marca',
+        title: 'Producto',
+        content: (bool)? 'El producto ha sido creada exitosamente': 'No se pudo crear el producto',
         solicitud: bool,
       },
     });
