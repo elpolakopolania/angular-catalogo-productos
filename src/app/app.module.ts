@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MaterialModule} from './material/material.module';
-import { PrestamosModule } from './prestamos/prestamos.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { PrestamosModule } from './prestamos/prestamos.module';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MaterialModule,
-    PrestamosModule,
     HttpClientModule
   ],
   providers: [],
