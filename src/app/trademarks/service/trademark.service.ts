@@ -4,7 +4,8 @@ import { environment } from 'src/environments/environment';
 
 import {HttpClient} from '@angular/common/http';
 import { Observable, Subject } from 'rxjs'; 
-import { Trademark, CreateTrademark, UpdateTrademark, GetTrademark } from '../model/trademark';
+import { Trademark, CreateTrademark, UpdateTrademark, GetTrademark, GetAllTrademark } from '../model/trademark';
+
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class TrademarkService {
     this.baseUrl = environment.API_URL + this.baseUrl;
   }
 
-  getAll(): Observable<Trademark[]> {
+  getAll(): Observable<GetAllTrademark> {
     return this.http.get<any>(this.baseUrl);
   }
 
@@ -33,7 +34,6 @@ export class TrademarkService {
   }
 
   patch(id: string, trademark: UpdateTrademark): Observable<Trademark> {
-    console.log('patch', trademark);
     return this.http.patch<any>(this.baseUrl + id, trademark);
   }
 

@@ -16,7 +16,6 @@ export class ModalComponent implements OnInit {
   ngOnInit(): void {}
 
   redireccionar(bool: boolean) {
-    console.log(bool);
     this.router.navigate(['/products/']);
   }
 }

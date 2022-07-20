@@ -33,9 +33,6 @@ export class CreateComponent implements OnInit {
 
   crear() {
     // Validar form
-    console.log(
-      this.name.valid && this.reference.valid 
-    );
     if (this.name.valid && this.reference.valid) {
       this.createTrademark = {
         name: (this.name.value == null)? '': this.name.value,
@@ -44,7 +41,6 @@ export class CreateComponent implements OnInit {
       
       this.trademarkService.create(this.createTrademark)
         .subscribe((res) => {
-          console.log(res)
           if(res.message == 'success'){
             this.modalConfirm(true);
           }else{

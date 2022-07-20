@@ -34,7 +34,6 @@ export class ProductService {
   }
 
   patch(id: string, product: UpdateProduct): Observable<Product> {
-    console.log('patch', product);
     return this.http.patch<any>(this.baseUrl + id, product);
   }
 

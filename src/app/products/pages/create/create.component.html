@@ -21,12 +21,72 @@
                 <mat-label>Talla</mat-label>
                 <input
                   matInput
-                  placeholder="Referencia EJ: 001343334DERFAAAAA"
+                  maxlength="3"
+                  placeholder="Talla Ej: (S,M,XS,Xl)"
                   [formControl]="size"
                   required
                 />
                 <mat-error *ngIf="size.invalid">{{
                   getErrMsgSize()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-6">
+              <mat-form-field class="ancho-completo" appearance="fill">
+                <mat-label>Observaciones</mat-label>
+                <input
+                  matInput
+                  placeholder="Observación del producto"
+                  [formControl]="observation"
+                  required
+                />
+                <mat-error *ngIf="observation.invalid">{{ getErrMsgObservation() }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-6">
+              <mat-form-field class="ancho-completo" appearance="fill">
+                <mat-label>Marca del producto</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  placeholder="Marca"
+                  [formControl]="trademarks_id"
+                  required
+                />
+                <mat-error *ngIf="trademarks_id.invalid">{{
+                  getErrMsgSize()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-6">
+              <mat-form-field class="ancho-completo" appearance="fill">
+                <mat-label>Cantidad en inventario</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  placeholder="Ingrese la cantidad en el inventario"
+                  [formControl]="inventory_quantity"
+                  required
+                />
+                <mat-error *ngIf="inventory_quantity.invalid">{{ getErrMsgInventory_quantity() }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-6">
+              <mat-form-field class="ancho-completo" appearance="fill">
+                <mat-label>Fecha de embarque</mat-label>
+                <input
+                  matInput
+                  type="date"
+                  placeholder="Seleccione la fecha"
+                  [formControl]="boarding_date"
+                  required
+                />
+                <mat-error *ngIf="boarding_date.invalid">{{
+                  getErrMsgBoarding_date()
                 }}</mat-error>
               </mat-form-field>
             </div>

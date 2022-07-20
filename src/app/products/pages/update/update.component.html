@@ -1,1 +1,106 @@
-<p>update works!</p>
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div fxFlex="95%">
+      <mat-card>
+        <mat-card-content>
+          <h2>Actualizar Producto</h2>
+          <div class="row mt-4">
+            <div class="col-6">
+              <mat-form-field class="ancho-completo" appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input
+                  matInput
+                  placeholder="Nombre del producto"
+                  [formControl]="name"
+                  required
+                />
+                <mat-error *ngIf="name.invalid">{{ getErrMsgName() }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-6">
+              <mat-form-field class="ancho-completo" appearance="fill">
+                <mat-label>Talla</mat-label>
+                <input
+                  matInput
+                  maxlength="3"
+                  placeholder="Talla Ej: (S,M,XS,Xl)"
+                  [formControl]="size"
+                  required
+                />
+                <mat-error *ngIf="size.invalid">{{
+                  getErrMsgSize()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-6">
+              <mat-form-field class="ancho-completo" appearance="fill">
+                <mat-label>Observaciones</mat-label>
+                <input
+                  matInput
+                  placeholder="Observación del producto"
+                  [formControl]="observation"
+                  required
+                />
+                <mat-error *ngIf="observation.invalid">{{ getErrMsgObservation() }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-6">
+              <mat-form-field class="ancho-completo" appearance="fill">
+                <mat-label>Marca del producto</mat-label>
+                <mat-select [formControl]="trademarks_id">
+                  <mat-option  *ngFor="let trademark of trademarks" [value]="trademark.id">
+                    {{trademark.name}}{{trademark.id}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="trademarks_id.invalid">{{
+                  getErrMsgSize()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-6">
+              <mat-form-field class="ancho-completo" appearance="fill">
+                <mat-label>Cantidad en inventario</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  placeholder="Ingrese la cantidad en el inventario"
+                  [formControl]="inventory_quantity"
+                  required
+                />
+                <mat-error *ngIf="inventory_quantity.invalid">{{ getErrMsgInventory_quantity() }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-6">
+              <mat-form-field class="ancho-completo" appearance="fill">
+                <mat-label>Fecha de embarque</mat-label>
+                <input
+                  matInput
+                  type="datetime"
+                  placeholder="Seleccione la fecha"
+                  [formControl]="boarding_date"
+                  required
+                />
+                <mat-error *ngIf="boarding_date.invalid">{{
+                  getErrMsgBoarding_date()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 mt-2">
+              <button mat-raised-button color="primary" style="margin: 10px;" class="float-right" (click)="editar()">
+                Crear
+              </button>
+              <button mat-raised-button color="basic" style="margin: 10px;" class="float-right" (click)="regresar()">
+                <mat-icon>subdirectory_arrow_left</mat-icon> Regresar
+              </button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  

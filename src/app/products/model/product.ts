@@ -6,16 +6,16 @@ export interface Product {
   size: string;
   observation: string;
   trademark: Trademark;
-  inventory_quantity: bigint;
-  boarding_date: Date;
+  inventory_quantity: string;
+  boarding_date: string | null;
 }
 
 export interface CreateProduct extends Omit<Product, 'id' | 'trademark'> {
-  trademark_id: bigint;
+  trademarks_id: string;
 }
 
 export interface UpdateProduct extends Partial<CreateProduct> {}
 
 export interface GetProduct {
-  data: Product;
+  data: CreateProduct;
 }

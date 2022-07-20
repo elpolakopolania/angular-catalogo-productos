@@ -50,7 +50,6 @@ export class ListComponent implements OnInit {
     this.productService.getAll().subscribe((data) => {
       this.datos = data;
       this.dataSource = new MatTableDataSource(this.datos.data);
-      console.log(this.datos.data);
     });
   }
 
