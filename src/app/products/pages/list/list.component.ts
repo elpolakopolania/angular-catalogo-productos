@@ -15,7 +15,7 @@ import { ModalComponent } from '../../generals/modal/modal.component';
 export class ListComponent implements OnInit {
   public products: Product[];
   public displayedColumns: string[] = [
-      'id', 'name', 'size', 
+      'id', 'name', 'size', 'observation', 
       'trademark', 'inventory_quantity', 
       'boarding_date', 'actions'
   ];
@@ -57,17 +57,17 @@ export class ListComponent implements OnInit {
   modalConfirm(bool: Boolean) {
     this.dialog.open(ModalComponent, {
       data: {
-        title: 'Marca',
+        title: 'Producto',
         content: bool
-          ? 'La marca se eliminó exitosamente'
-          : 'No se pudo eliminar la marca',
+          ? 'el producto se eliminó exitosamente'
+          : 'No se pudo eliminar el producto',
         solicitud: bool,
       },
     });
   }
 
   eliminar(el: any) {
-    if (confirm('Está seguro de eliminar la marca ' + el.name)) {
+    if (confirm('Está seguro de eliminar el producto ' + el.name)) {
       this.productService.delete(el.id).subscribe((res) => {
         this.inicializar();
         if (res.message != 'success') {

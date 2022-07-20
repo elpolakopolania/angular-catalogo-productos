@@ -17,6 +17,6 @@ export class ModalComponent implements OnInit {
 
   redireccionar(bool: boolean) {
     console.log(bool);
-    this.router.navigate(['/trademarks/']);
+    this.router.navigate(['/products/']);
   }
 }

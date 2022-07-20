@@ -30,13 +30,13 @@
   
             <ng-container matColumnDef="size">
               <th mat-header-cell *matHeaderCellDef>Talla</th>
-              <td mat-cell *matCellDef="let element">{{ element.size }}</td>
+              <td mat-cell *matCellDef="let element"><b>{{ element.size }}</b></td>
             </ng-container>
 
-            <!--<ng-container matColumnDef="observation">
+            <ng-container matColumnDef="observation">
                 <th mat-header-cell *matHeaderCellDef>Observacion</th>
                 <td mat-cell *matCellDef="let element">{{ element.observation }}</td>
-              </ng-container>-->
+              </ng-container>
 
               <ng-container matColumnDef="trademark">
                 <th mat-header-cell *matHeaderCellDef>Marca<th>
