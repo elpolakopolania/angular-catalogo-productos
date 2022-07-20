@@ -32,37 +32,46 @@ export class ListComponent implements OnInit {
     this.inicializar();
   }
 
-  modalError() {
-    /*this.dialog.open(ModalComponent, {
+  modalError(res: any) {
+    this.dialog.open(ModalComponent, {
       data: {
-        title: 'No se puede pagar el prestamo',
-        content: 'El valor del prestamo supera el capital base del banco.',
+        title: res.info,
+        content: '',
       },
-    });*/
+    });
   }
 
   inicializar() {
     // Obtener el listado
-    this.trademarkService
-      .getAll()
-      .subscribe((data) => {        
-        this.datos = data;
-        this.dataSource = new MatTableDataSource(this.datos.data);
-        console.log(this.datos.data);
+    this.trademarkService.getAll().subscribe((data) => {
+      this.datos = data;
+      this.dataSource = new MatTableDataSource(this.datos.data);
+      console.log(this.datos.data);
+    });
+  }
+
+  modalConfirm(bool: Boolean) {
+    this.dialog.open(ModalComponent, {
+      data: {
+        title: 'Marca',
+        content: bool
+          ? 'La marca se eliminó exitosamente'
+          : 'No se pudo eliminar la marca',
+        solicitud: bool,
+      },
+    });
+  }
+
+  eliminar(el: any) {
+    if (confirm('Está seguro de eliminar la marca ' + el.name)) {
+      this.trademarkService.delete(el.id).subscribe((res) => {
+        this.inicializar();
+        if (res.message != 'success') {
+          this.modalError(res);
+        } else {
+          this.modalConfirm(true);
+        }
       });
+    }
   }
-
-  nuevo(){
-
-  }
-
-  editar(el: any){
-    console.log(el);
-  }
-
-  eliminar(el: any){
-    console.log(el);
-  }
-
-
 }

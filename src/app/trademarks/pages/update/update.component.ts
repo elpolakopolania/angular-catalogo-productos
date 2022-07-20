@@ -4,45 +4,62 @@ import { MatDialog } from '@angular/material/dialog';
 import { TrademarkService } from '../../service/trademark.service';
 import { ModalComponent } from '../../generals/modal/modal.component';
 import { Trademark, CreateTrademark, UpdateTrademark } from '../../model/trademark';
-import { Location } from '@angular/common'
+import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.css'],
+  selector: 'app-update',
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.css'],
 })
-export class CreateComponent implements OnInit {
-  trademark: Trademark;
-  createTrademark: CreateTrademark;
-  updateTrademark: UpdateTrademark;
+export class UpdateComponent implements OnInit {
+  public trademark: Trademark;
+  public createTrademark: CreateTrademark;
+  public updateTrademark: UpdateTrademark;
 
-  name = new FormControl('', [Validators.required]);
-  reference = new FormControl('', [Validators.required, Validators.maxLength(20)]);
+  public name = new FormControl('', [Validators.required]);
+  public reference = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(20),
+  ]);
+
+  public id: bigint;
 
   constructor(
     public dialog: MatDialog,
     private trademarkService: TrademarkService,
-    private location: Location
-  ) {}
+    private location: Location,
+    private route:ActivatedRoute
+  ) {
+    this.id = this.route.snapshot.params['id'];
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Obtener informacion de la marca
+    this.trademarkService
+        .get(this.id)
+        .subscribe((res) => {
+          this.name.setValue(res.data.name);
+          this.reference.setValue(res.data.reference);
+        });
+  }
 
-  regresar(){
+  regresar() {
     this.location.back();
   }
 
-  crear() {
+  editar() {
     // Validar form
-    console.log(
-      this.name.valid && this.reference.valid 
-    );
+    console.log(this.name.valid && this.reference.valid);
     if (this.name.valid && this.reference.valid) {
+
       this.createTrademark = {
-        name: (this.name.value == null)? '': this.name.value,
-        reference: (this.reference.value == null)? '': this.reference.value
-      }
-      
-      this.trademarkService.create(this.createTrademark)
+        name: this.name.value == null ? '' : this.name.value,
+        reference: this.reference.value == null ? '' : this.reference.value,
+      };
+
+      this.trademarkService
+        .update(this.id, this.createTrademark)
         .subscribe((res) => {
           console.log(res)
           if(res.message == 'success'){
@@ -70,7 +87,9 @@ export class CreateComponent implements OnInit {
     this.dialog.open(ModalComponent, {
       data: {
         title: 'Marca',
-        content: (bool)? 'La marca ha sido creada exitosamente': 'No se pudo crear la marca',
+        content: bool
+          ? 'La marca ha sido editada exitosamente'
+          : 'No se pudo editar la marca',
         solicitud: bool,
       },
     });
@@ -90,8 +109,4 @@ export class CreateComponent implements OnInit {
     return '';
   }
 
-  valorSeleccionado(e: any) {
-    /*this.value = e.value;
-    this.dateToPay = e.dateToPay;*/
-  }
 }

@@ -43,7 +43,7 @@
                   <button
                     mat-raised-button
                     color="primary"
-                    (click)="editar(element)"
+                    [routerLink]="[element.id + '/edit']"
                   >
                     Editar
                   </button>

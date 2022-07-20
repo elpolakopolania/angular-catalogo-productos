@@ -4,21 +4,14 @@ import { environment } from 'src/environments/environment';
 
 import {HttpClient} from '@angular/common/http';
 import { Observable, Subject } from 'rxjs'; 
-import { Trademark } from '../model/trademark';
+import { Trademark, CreateTrademark, UpdateTrademark, GetTrademark } from '../model/trademark';
+import { CreateComponent } from '../pages/create/create.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TrademarkService {
   private baseUrl = 'trademarks/';
-  /*public valorPrestado: any;
-  private valorPrestadoSubject = new Subject<string>();
-  public valorPrestadoObservable = this.valorPrestadoSubject.asObservable();
-
-  enviarValorPrestado(valor: any) {
-    this.valorPrestado = valor;
-    this.valorPrestadoSubject.next(valor);
-  }*/
 
   constructor(private http: HttpClient) {
     this.baseUrl = environment.API_URL + this.baseUrl;
@@ -28,28 +21,25 @@ export class TrademarkService {
     return this.http.get<any>(this.baseUrl);
   }
 
-  /*get(id: string): Observable<Trademark> {
-    return this.http.get<any>(this.baseUrl + '/' + id);
+  get(id: bigint): Observable<GetTrademark> {
+    return this.http.get<any>(this.baseUrl + id);
   }
 
-  create(Solicitud: any) {
-    return this.http.post<any>(this.baseUrl, Solicitud);
+  create(trademark: CreateTrademark) {
+    return this.http.post<any>(this.baseUrl, trademark);
   }
 
-  update(id: string, Solicitud: Solicitud): Observable<Trademark> {
-    return this.http.put<any>(this.baseUrl + '/' + id, Solicitud);
+  update(id: bigint, trademark: UpdateTrademark){
+    return this.http.put<any>(this.baseUrl + id, trademark);
   }
 
-  patch(id: string, solicitud: any): Observable<Trademark> {
-    console.log('patch', solicitud);
-    return this.http.patch<any>(this.baseUrl + '/' + id, solicitud);
+  patch(id: string, trademark: UpdateTrademark): Observable<Trademark> {
+    console.log('patch', trademark);
+    return this.http.patch<any>(this.baseUrl + id, trademark);
   }
 
-  delete(id: string) {
-    return this.http.delete<any>(this.baseUrl + '/' + id);
+  delete(id: bigint) {
+    return this.http.delete<any>(this.baseUrl + id);
   }
 
-  getValues(): Observable<Trademark[]> {
-    return this.http.get<any>(this.baseUrl + '?paidOut=true');
-  }*/
 }
