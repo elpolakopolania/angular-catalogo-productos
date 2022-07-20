@@ -13,7 +13,9 @@
             />
           </mat-form-field>
           <br>
-          <button mat-raised-button color="accent" (click)="nuevo()" style="margin: 10px">Nuevo</button>
+          <a mat-list-item [routerLink]="['/trademarks/create']">
+            <button mat-raised-button color="accent" go-click="/create" style="margin: 10px">Nuevo</button>
+          </a>
   
           <table mat-table [dataSource]="dataSource" style="width: 100%" class="mat-elevation-z8">
             <ng-container matColumnDef="id">

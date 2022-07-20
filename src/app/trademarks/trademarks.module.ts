@@ -6,13 +6,15 @@ import { ListComponent } from './pages/list/list.component';
 import { FormComponent } from './pages/form/form.component';
 import { ModalComponent } from './generals/modal/modal.component';
 import { MaterialModule } from '../material/material.module';
+import { CreateComponent } from './pages/create/create.component';
 
 
 @NgModule({
   declarations: [
     ListComponent,
     FormComponent,
-    ModalComponent
+    ModalComponent,
+    CreateComponent
   ],
   imports: [
     CommonModule,

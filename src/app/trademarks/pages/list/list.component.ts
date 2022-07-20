@@ -32,18 +32,6 @@ export class ListComponent implements OnInit {
     this.inicializar();
   }
 
-  pagar(row: any) {
-    // Pagar solicitud
-    /*if (this.totalPrestado + row.value > this.capitalBase) {
-      this.modalError();
-    } else {
-      this.trademarkService
-        .patch(row.id, { paidOut: true })
-        .subscribe((res) => console.log(res));
-      this.inicializar();
-    }*/
-  }
-
   modalError() {
     /*this.dialog.open(ModalComponent, {
       data: {
