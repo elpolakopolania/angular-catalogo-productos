@@ -1,0 +1,48 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div fxFlex="95%">
+      <mat-card>
+        <mat-card-content>
+          <h2>Crear Marca</h2>
+          <div class="row mt-4">
+            <div class="col-6">
+              <mat-form-field class="ancho-completo" appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input
+                  matInput
+                  placeholder="Nombre de la marca"
+                  [formControl]="name"
+                  required
+                />
+                <mat-error *ngIf="name.invalid">{{ getErrMsgName() }}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-6">
+              <mat-form-field class="ancho-completo" appearance="fill">
+                <mat-label>Referencia</mat-label>
+                <input
+                  matInput
+                  placeholder="Referencia EJ: 001343334DERFAAAAA"
+                  [formControl]="reference"
+                  required
+                />
+                <mat-error *ngIf="reference.invalid">{{
+                  getErrMsgReference()
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 mt-2">
+              <button mat-raised-button color="primary" style="margin: 10px;" class="float-right" (click)="editar()">
+                Editar
+              </button>
+              <button mat-raised-button color="basic" style="margin: 10px;" class="float-right" (click)="regresar()">
+                <mat-icon>subdirectory_arrow_left</mat-icon> Regresar
+              </button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
