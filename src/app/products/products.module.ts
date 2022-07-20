@@ -3,21 +3,26 @@ import { CommonModule } from '@angular/common';
 
 import { ProductsRoutingModule } from './products-routing.module';
 import { ListComponent } from './pages/list/list.component';
-import { GeneralsComponent } from './generals/generals.component';
+import { ModalComponent } from './generals/modal/modal.component';
 import { CreateComponent } from './pages/create/create.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UpdateComponent } from './pages/update/update.component';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
   declarations: [
     ListComponent,
-    GeneralsComponent,
     CreateComponent,
-    UpdateComponent
+    UpdateComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
-    ProductsRoutingModule
+    ProductsRoutingModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ProductsModule { }

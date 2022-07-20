@@ -11,7 +11,7 @@ export interface Product {
 }
 
 export interface CreateProduct extends Omit<Product, 'id' | 'trademark'> {
-  trademark_id: number;
+  trademark_id: bigint;
 }
 
 export interface UpdateProduct extends Partial<CreateProduct> {}

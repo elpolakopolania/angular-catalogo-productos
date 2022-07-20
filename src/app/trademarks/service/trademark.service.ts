@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment';
 import {HttpClient} from '@angular/common/http';
 import { Observable, Subject } from 'rxjs'; 
 import { Trademark, CreateTrademark, UpdateTrademark, GetTrademark } from '../model/trademark';
-import { CreateComponent } from '../pages/create/create.component';
 
 @Injectable({
   providedIn: 'root',
